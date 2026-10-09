@@ -17,7 +17,8 @@ description: 대학수학능력시험(수능) 영어 영역 문제지와 같은 
 - `reference/codex-figures.md` — Herdr로 Codex에 그림·교차 풀이 맡기기
 - `templates/FIGURE_SPEC_example.md` — 듣기 그림·도표 사양서 예
 
-Python: `C:\Users\canine89\AppData\Local\Programs\Python\Python312-arm64\python.exe` (아래 `PY`, `PYTHONIOENCODING=utf-8` 권장)
+Python: 3.10 이상 + `pymupdf`, `pillow`. 아래 `PY` 는 그 Python 실행 파일(예: `export PY=python`),
+`PYTHONIOENCODING=utf-8` 권장. 경로를 정하는 법은 `AGENTS.md` 참고.
 
 ## 0. 준비
 - 한글 COM, 보안 모듈 레지스트리(AGENTS.md). `HERDR_ENV=1` 과 Codex 패널(`herdr agent list`) 확인.

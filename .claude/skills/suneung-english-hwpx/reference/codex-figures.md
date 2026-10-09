@@ -6,7 +6,7 @@ Claude는 그림을 직접 그리지 않는다(matplotlib 대체 금지). 사양
 ## 1. Codex 찾기 (Herdr)
 ```bash
 test "${HERDR_ENV:-}" = 1 || echo "Herdr 밖에서 실행 중 → 사용자에게 전달을 부탁"
-HERDR=herdr   # PATH에 없으면: /c/Users/<user>/AppData/Local/Programs/Herdr/bin/herdr.exe
+HERDR=herdr   # PATH에 없으면 설치 경로로, 예: "$LOCALAPPDATA/Programs/Herdr/bin/herdr.exe"
 $HERDR agent list            # "agent":"codex" 인 항목의 pane_id (예: w1:p2)
 ```
 pane_id는 매번 `agent list` 로 확인한다(고정값으로 가정하지 말 것).

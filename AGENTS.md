@@ -1,7 +1,7 @@
 # AGENTS.md — 수능형 영어 영역 문제지(hwpx) 제작
 
 이 프로젝트는 **대학수학능력시험 영어 영역 문제지와 같은 양식**의 모의 문제지를 한글(hwpx)로 만든다.
-(`kmath-test-maker` 의 수학 영역 구조를 영어 영역에 맞게 옮긴 것.)
+(같은 방식으로 만든 수학 영역 프로젝트의 구조를 영어 영역에 맞게 옮긴 것.)
 두 에이전트가 Herdr 작업 공간에서 나란히 실행되며 역할을 나눈다. 이 문서를 읽는 에이전트는 자기 역할만 수행한다.
 
 | 역할 | 담당 | 하는 일 | 쓰는 위치 |
@@ -25,8 +25,10 @@ reference_src/        평가원 원본 PDF(실측 전용, 배포 금지)
 output/               결과 (hwpx, pdf, 정답표.txt, 듣기대본.txt)
 .claude/skills/suneung-english-hwpx/   Claude용 절차·실측값·Codex 협업 문서
 ```
-Python: `C:\Users\canine89\AppData\Local\Programs\Python\Python312-arm64\python.exe` (pymupdf, pillow 설치됨)
-(PATH의 `python` 은 Microsoft Store 별칭이라 동작하지 않는다. 위 전체 경로로 실행한다.)
+Python: 3.10 이상 + `pymupdf`, `pillow` (`pip install pymupdf pillow`). 문서의 `PY` 는 그 Python 실행 파일이다.
+셸에서 한 번 정해 두고 쓴다: `export PY=python` (Windows Git Bash에서 `python` 이 Microsoft Store 별칭이라
+동작하지 않으면 실제 설치 경로로, 예: `export PY="$LOCALAPPDATA/Programs/Python/Python312/python.exe"`).
+한글 경로·문구가 깨지지 않게 `export PYTHONIOENCODING=utf-8` 도 권장.
 
 ---
 
@@ -50,18 +52,20 @@ Python: `C:\Users\canine89\AppData\Local\Programs\Python\Python312-arm64\python.
 
 0. **분량 예산 먼저.** 출제 전에 `.claude/skills/suneung-english-hwpx/reference/budget.md` 로 문항별 지문 줄 상한·낱말 목표를 확인한다.
    레이아웃은 문항마다 원본 위치의 고정 칸이라, 칸 높이를 넘지 않게 쓰는 것이 전부다.
-1. `problems/exam.py` 에 문항과 듣기 대본을 쓰면서 `python tools/budget.py check` 로 칸마다 넘침을 확인한다
+1. `problems/exam.py` 에 문항과 듣기 대본을 쓰면서 `$PY tools/budget.py check` 로 칸마다 넘침을 확인한다
    (한글 없이 1초, 예측 오차 평균 1.6 pt). **넘침·경고 0이 되기 전에는 build.py 를 돌리지 않는다.**
    그다음 `problems/verify.py` 로 형식·정답 분포를 검증한다.
 2. 그림이 필요하면 `figures/FIGURE_SPEC.md` 를 쓰고 Herdr로 Codex에게 전달한다. 요청문에 **"image gen으로 만들 것"** 을 반드시 넣는다. 그림을 직접 그리지 않는다.
 3. 정답 교차 검증: 정답을 뺀 풀이지(`build/solve_sheet.txt`)를 Codex에게 풀게 하고 `exam.py` 정답과 대조한다.
-4. `python tools/build.py` (한 번) → `tools/compare.py`·`tools/slack.py` 로 원본 대조 → `tools/sidebyside.py` 로 쪽마다 원본과 나란히 검수.
+4. `$PY tools/build.py` (한 번) → `tools/compare.py`·`tools/slack.py` 로 원본 대조 → `tools/sidebyside.py` 로 쪽마다 원본과 나란히 검수.
    조판 결과가 예측과 다르면 원고를 고치기 전에 `tools/budget.py fit` 으로 예측 모델부터 맞춘다.
-5. `python tools/answers.py` 로 정답표와 듣기 대본을 만든다.
+5. `$PY tools/answers.py` 로 정답표와 듣기 대본을 만든다.
 
 ## 공통 규칙
 
 - 원본은 **양식(쪽 배치·글꼴·크기·상자·간격)만** 따른다. 평가원 문항·지문은 옮기지 않고 새로 출제한다(저작권).
 - 결과물이 실제 평가원 문제지로 오인되지 않게 한다. 상단 문구에 "모의", 하단에 "학습용으로 제작된 모의 문제지" 문구를 쓰고, 평가원 저작권 문구는 쓰지 않는다.
 - 사용자가 한글에서 `output/*.hwpx` 를 열어 두면 저장이 실패한다. 닫아 달라고 하거나 다른 이름으로 저장한다.
-- 한글 자동화 권한 팝업이 뜨면 보안 모듈 등록을 확인한다: 레지스트리 `HKCU\SOFTWARE\HNC\HwpAutomation\Modules` 의 `FilePathCheckerModuleExample` (현재 `kmath-test-maker\tools\secmod\...dll` 을 가리킴. 같은 DLL이 `tools\secmod\` 에도 있다).
+- 한글 자동화 권한 팝업이 뜨면 보안 모듈을 등록한다: 레지스트리 `HKCU\SOFTWARE\HNC\HwpAutomation\Modules` 에
+  문자열 값 `FilePathCheckerModuleExample` = `<프로젝트 폴더>\tools\secmod\FilePathCheckerModuleExample.dll`
+  (한컴 자동화 보안 모듈 예제 DLL). 예: `reg add "HKCU\SOFTWARE\HNC\HwpAutomation\Modules" /v FilePathCheckerModuleExample /t REG_SZ /d "<프로젝트 폴더>\tools\secmod\FilePathCheckerModuleExample.dll"`
