@@ -1,0 +1,37 @@
+{
+  "edition": 2,
+  "tool": "built-in image_gen",
+  "fig_l04": {
+    "prompt": "Use case: scientific-educational. Asset: Korean CSAT English listening exam line drawing, landscape 108:66 aspect. Create an indoor SCHOOL SCIENCE FAIR BOOTH viewed straight from front. Crisp uniform black pen line art on pure white, minimal gray shading, no people, no color, no watermark. Thin black rectangular frame with narrow white outside margin. Five clearly separated identifiable elements, circled upright numerals ①②③④⑤ exactly once beside corresponding objects: ① a wide horizontal banner hung above booth, exact uppercase lettering \"SCIENCE FAIR\" (S C I E N C E, space, F A I R), fully readable; ② one rectangular table covered with a CHECKERBOARD tablecloth made of alternating black/white SQUARES, visibly checker pattern on tabletop and hanging front, absolutely no flower or stripe pattern; ③ one conical VOLCANO MODEL sitting on the table, a few thin smoke curves emerging from the summit; ④ exactly TWO distinct potted plants on the FLOOR below the table, unobscured pots and leaves, no additional plants anywhere; ⑤ a SOLAR SYSTEM POSTER affixed to the back wall / noticeboard at upper right, showing a sun and several planets on orbital ellipses, fully visible clear of banner and volcano. Numerals: ① adjacent banner, ② beside hanging tablecloth, ③ beside volcano, ④ next to pair of floor pots, ⑤ next to poster. Sparse simple indoor background. Keep main objects unobstructed. Target final print 2551x1559px at 600dpi.",
+    "raw": "raw/fig_l04_generated.png",
+    "selected": true
+  },
+  "fig_r25": {
+    "prompt": "Use case: scientific-educational. Generate a precise Korean CSAT English exam VERTICAL GROUPED BAR CHART. Landscape aspect103:70, target 2433x1654 print pixels. Pure white background, BLACK serif Times New Roman style text, solid dark gray and light gray bars, thin black outer rectangular frame with narrow white margin. No grid lines, no gradients or texture, no shadows, no 3D. Centered bold title exactly \"How Students Commuted to School in 2015 and 2025\" (two lines allowed). Small boxed legend upper right above plot: dark gray \"2015\"; light gray \"2025\". Five category groups LEFT TO RIGHT exactly \"Walking\", \"Bus\", \"Car\", \"Bicycle\", \"Subway\". Two vertical bars per group, LEFT DARK 2015, RIGHT LIGHT 2025. Values and numbers centered just above tops: Walking 34 and28; Bus26 and24; Car18 and22; Bicycle8 and15; Subway14 and11. Ten bars SAME WIDTH. Shared zero baseline, vertical axis ticks 0,10,20,30,40 uniformly spaced, (%) above vertical axis. CRITICAL mathematical accuracy: all ten heights exactly proportional to 34,28,26,24,18,22,8,15,14,11. Height34 must equal4.25 times height8. On conceptual1500x1020 canvas: baseline y850, tick40 y250, scale15pixels per percentage; bar top y values left to right: 340,430,460,490,580,520,730,625,640,685. Ticks at y850,700,550,400,250. Leave room for title and legend without overlap. Do not include conceptual coordinates in image. Show all10 exact number labels, category spellings, percent axis and legend. Flat professional textbook chart.",
+    "raw": "raw/fig_r25_generated.png",
+    "selected": false
+  },
+  "edit_attempts": [
+    {
+      "prompt": "Edit target: supplied vertical grouped bar chart. Preserve all text exactly, all category positions, legend, serif typography, border and axes. Correct ONLY heights of ten bars to match a single linear scale. The original canvas is1520x1034, zero baseline y898 and 40 tick y213, so scale17.125px per percentage. Set top horizontal edges of bars, from left to right, to y316(34), y419(28), y453(26), y487(24), y590(18), y521(22), y761(8), y641(15), y658(14), y710(11). Each bar still ends at baseline y898. In particular shorten Walking34 by9pixels, Walking28 by7pixels; shorten Car22 by4pixels; shorten Subway14 and11 by4pixels. Do not redesign or move axes. Keep existing correct labels34,28,26,24,18,22,8,15,14,11 just above revised tops. Fills should be flat dark gray(left2015) and flat light gray(right2025). No texture/gradient. White background. Exact proportional height is required;34 is4.25 times8. Keep every other detail unchanged.",
+      "raw": "raw/fig_r25_edit_01.png",
+      "selected": false
+    },
+    {
+      "prompt": "This is a tiny correction of the supplied chart, NOT a redesign. All bars must keep common bottom at the horizontal zero axis. SHORTEN, never lengthen, the FIRST TWO bars by moving their TOP EDGES DOWNWARD: dark Walking labelled34 is currently too tall at34.5, so lower its top by9pixels; light Walking labelled28 currently28.4, lower its top by7pixels. SHORTEN the light Car22 bar and both Subway14/11 bars by lowering their top edges4pixels. Keep the Bus26/24 bars and Bicycle8/15 bars exactly unchanged. Dark Car18 can lower2pixels. Left bar stays dark2015 and right light2025. Preserve title \"How Students Commuted to School in 2015 and 2025\", all five category names, all10 numeric labels, legend, frame and axis numbers unchanged. Move only mentioned top edges downward and move their number labels downward accordingly. White background. Uniform flat grayscale bars. Accurate proportion34/8=4.25.",
+      "raw": "raw/fig_r25_edit_02.png",
+      "selected": false
+    },
+    {
+      "prompt": "Edit only ONE object: the leftmost DARK GRAY vertical bar labelled34 in Walking category. It is slightly too tall. REDUCE ITS HEIGHT BY 9 PIXELS by moving its top edge DOWN, toward the zero baseline. Keep its bottom edge fixed on baseline, keep its width and x position fixed. Move its label34 down9pixels as well. On source image top is y307, corrected top must be y316. Do not change any other pixels or objects. Preserve the other9 bars, the entire axis, title, legend, category names and outer frame unchanged. White background. This is a single small precise height correction.",
+      "raw": "raw/fig_r25_edit_03.png",
+      "selected": false
+    },
+    {
+      "prompt": "Edit only ONE bar: light gray Walking bar labelled28, second bar from left. Shorten it by7pixels: move its TOP DOWN from y412 to y419, leaving bottom at y898 unchanged. Move label28 downward7pixels too. All other9 bars, labels and whole chart must remain exactly unchanged, especially preserve leftmost dark34 bar whose top is y315. Do not redesign. Exact text and white background unchanged.",
+      "raw": "raw/fig_r25_edit_04.png",
+      "selected": true
+    }
+  ],
+  "print_preparation": "Only crop, resize, white margin and 600 dpi metadata. No code plotting or content drawing."
+}

@@ -1,0 +1,24 @@
+{
+"edit_attempts": [
+  {
+    "prompt": "Edit target: the supplied horizontal chart. Preserve every word, numeric label, category order, legend, frame, serif font and overall layout. Refine ONLY bar lengths and flat fills to be mathematically exact: shared left edge x318; tick 0 x318, tick50 x1421 on the 1521x1034 original canvas, so scale 22.06px per percentage. Required bar right edges top to bottom: 1024 (32),1311 (45),715 (18),980 (30),847 (24),583 (12),759 (20),539 (10),450 (6),384 (3). Adjust each endpoint label to sit immediately right of revised endpoint. Keep upper bars uniformly dark gray and lower bars uniformly light gray without texture or gradients. All ten bars must have lengths exactly proportional to their numbers within nearest-pixel rounding. Keep all other visual elements unchanged. White background; no grids, shadows or color.",
+    "raw": "raw/fig_r25_edit_01.png",
+    "selected": false
+  },
+  {
+    "prompt": "Edit target is the original chart. Keep whole chart unchanged except following precise tiny corrections to bar endpoints: Social Media 2026 shorten bar by 4 pixels; Video Platforms 2026 shorten by 6 pixels; TV 2016 shorten by 4 pixels; TV 2026 shorten by 3 pixels; Print Newspapers 2016 lengthen by 2 pixels. Do not change any other bars, especially keep Social Media 2016 length unchanged. Preserve title, all category names, 10 labels, legend, axes, tick spacing and frame exactly. Labels remain just to right of each bar. Required final lengths for all ten bars proportional to values 32 45 18 30 24 12 20 10 6 3 on common scale. Dark/light gray and white background. These are small endpoint refinements, no redesign.",
+    "raw": "raw/fig_r25_edit_02.png",
+    "selected": false
+  }
+],
+  "tool": "built-in image_gen",
+  "fig_l04": {
+    "prompt": "Use case: scientific-educational. Generate a print-ready Korean CSAT English listening question illustration. Landscape aspect 108:66. White background, crisp uniform black pen line art, minimal shading, no color, no people. Thin black rectangular border, very narrow outer white margin. Simple daytime forest campsite. Arrange FIVE distinct nonoverlapping numbered subjects in order left to right: ① a banner hung between two trees with exact uppercase text \"CAMP\"; ② dome tent decorated with several solid five-point stars ★; ③ round circular table seen in perspective, with exactly ONE lantern on top; ④ exactly ONE bicycle leaning against a tree (two wheels belonging to a single bicycle, absolutely no second bicycle); ⑤ exactly ONE puppy lying asleep belly down on a rectangular camping mat. Put small upright black circled numerals ① ② ③ ④ ⑤ immediately next to their respective subjects, only once each. Keep background trees grass and distant hills sparse. Subjects clearly readable at small exam print size. All five subjects fit inside frame with no overlaps. Target final 2551 x1559 pixels, 600dpi, white background.",
+    "raw": "raw/fig_l04_generated.png"
+  },
+  "fig_r25": {
+    "prompt": "Use case: scientific-educational. Create precise print-ready horizontal grouped bar chart for English exam. Landscape 103:70 ratio. White background, thin black rectangular frame with narrow white outer margin. Black text in Times New Roman style serif, no grids, shadows or 3D. Title centered bold exactly \"Preferred News Sources among Teenagers in 2016 and 2026\" (two lines allowed). Boxed legend upper right above bars: dark gray 2016, light gray 2026, solid fills no hatching. Five category groups top to bottom exactly \"Social Media\", \"Video Platforms\", \"News Websites\", \"TV\", \"Print Newspapers\". Each group two horizontal bars, upper dark gray 2016 and lower light gray 2026. Exact bar data with labels immediately beyond right endpoints: Social Media 32,45; Video Platforms 18,30; News Websites 24,12; TV 20,10; Print Newspapers 6,3. All TEN bars start at shared zero vertical axis. Horizontal scale ticks 0,10,20,30,40,50 uniformly spaced, (%) at axis end. CRITICAL: precise linear proportionality lengths: 45 is 15 times 3; 30 is 5/3 times 18. Suggested geometry on 1500x1020 canvas: baseline x=440, 50 tick x=1390, so each percentage =19px. Endpoints 2016/2026: Social x1048/x1295; Video x782/x1010; News x896/x668; TV x820/x630; Print x554/x497. Group upper/lower y=300/345,425/470,550/595,675/720,800/845; axis y=905. Labels aligned to category pairs, legend clear of plotted area, generous readable typography. Ten numeric labels exactly 32 45 18 30 24 12 20 10 6 3. Render a clean exam chart with the mathematically accurate lengths.",
+    "raw": "raw/fig_r25_generated.png"
+  },
+  "print_preparation": "Crop to generated border, resize, add 24px white margins, set PNG 600dpi metadata; no code-rendered drawing or plotting."
+}

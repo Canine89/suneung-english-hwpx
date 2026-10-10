@@ -9,6 +9,8 @@ Claude Code 스킬과 에이전트 협업 규칙(AGENTS.md)입니다.
 - `reference/budget.md` — 문항별 분량 예산(칸 높이, 원본 구성, 지문 줄 상한·낱말 목표)
 - `reference/codex-figures.md` — Herdr로 Codex에 그림·교차 풀이를 맡기는 방법
 - `templates/FIGURE_SPEC_example.md` — 듣기 그림·도표 사양서 예시
+- `samples/` — 이 스킬로 만든 모의 문제지 2회분(pdf·hwpx, 정답표, 듣기 대본, 원고 `exam.py`, 그림과 프롬프트).
+  처음 보는 분은 `samples/2027-모의2/output/영어영역_문제지.pdf` 부터 열어 보세요. 자세한 설명은 `samples/README.md`.
 
 ## 참고
 - 스킬이 부르는 `tools/`(build.py, budget.py 등)와 `problems/` 는 이 레포에 포함되어 있지 않습니다.
